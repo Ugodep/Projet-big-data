@@ -35,5 +35,5 @@ catch (Exception $e) {
     die("Erreur : " . $e->getMessage() .
         "<br>Transaction annulée (ROLLBACK).");
 }
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 ?>

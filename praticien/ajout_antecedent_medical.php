@@ -13,6 +13,6 @@ VALUES(NULL, '$Date_diagnostic', '$Nom_maladie', '$Traitements', '$Id_Patiente')
 $Resultat = $base->exec($sql);
 
 echo "Antécédent médical ajouté avec succès !";
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

@@ -12,6 +12,6 @@ VALUES(NULL, '$Nom_maladie', '$Lien_parente', '$Id_Patiente')";
 $Resultat = $base->exec($sql);
 
 echo "Antécédent familial ajouté avec succès !";
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

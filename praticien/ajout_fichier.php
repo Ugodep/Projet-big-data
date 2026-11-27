@@ -17,6 +17,6 @@ VALUES(NULL, '$Nom_fichier', '$Format_fichier', '$Largeur_pixels', '$Hauteur_pix
 $Resultat = $base->exec($sql);
 
 echo "Fichier médical ajouté avec succès !";
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

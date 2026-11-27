@@ -1,7 +1,12 @@
 <?php
 
 $Id_Examen = $_POST['Id_Examen'];
-$Id_Praticien = $_POST['Id_Praticien'];
+session_start();
+if (!isset($_SESSION['id_praticien']))
+{
+    die("Connecte-toi d'abord. <a href='../index.html'>Connexion</a>");
+}
+$Id_Praticien = $_SESSION['id_praticien'];
 $Date_resultat = $_POST['Date_resultat'];
 $Type_prelevement = $_POST['Type_prelevement'];
 $Nature_lesion = $_POST['Nature_lesion'];
@@ -17,6 +22,6 @@ VALUES(NULL, '$Date_resultat', '$Type_prelevement', '$Descriptions', '$Nature_le
 $Resultat = $base->exec($sql);
 
 echo "Résultat ajouté avec succès !";
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

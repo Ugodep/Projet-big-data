@@ -9,3 +9,7 @@ a { color: #d6336c; }
 .connexion { max-width: 340px; margin: 80px auto; text-align: center; }
 .connexion form { text-align: left; }
 img { margin-bottom: 10px; }
+table { border-collapse: collapse; width: 100%; background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+th { background: #d6336c; color: white; text-align: left; padding: 8px 10px; }
+td { padding: 8px 10px; border-bottom: 1px solid #f0d5df; }
+tr:nth-child(even) td { background: #fdf7f9; }

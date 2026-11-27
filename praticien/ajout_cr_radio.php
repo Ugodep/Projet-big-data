@@ -1,7 +1,12 @@
 <?php
 
 $Id_Examen = $_POST['Id_Examen'];
-$Id_Praticien = $_POST['Id_Praticien'];
+session_start();
+if (!isset($_SESSION['id_praticien']))
+{
+    die("Connecte-toi d'abord. <a href='../index.html'>Connexion</a>");
+}
+$Id_Praticien = $_SESSION['id_praticien'];
 $Date_compte_rendu = $_POST['Date_compte_rendu'];
 $Localisation_lesions = $_POST['Localisation_lesions'];
 $Classification = $_POST['Classification'];
@@ -16,6 +21,6 @@ VALUES(NULL, '$Date_compte_rendu', '$Localisation_lesions', '$Classification', '
 $Resultat = $base->exec($sql);
 
 echo "Compte rendu ajouté avec succès !";
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

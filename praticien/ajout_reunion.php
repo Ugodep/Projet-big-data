@@ -1,7 +1,12 @@
 <?php
 
 $Id_Patiente = $_POST['Id_Patiente'];
-$Id_Praticien = $_POST['Id_Praticien'];
+session_start();
+if (!isset($_SESSION['id_praticien']))
+{
+    die("Connecte-toi d'abord. <a href='../index.html'>Connexion</a>");
+}
+$Id_Praticien = $_SESSION['id_praticien'];
 $Date_reunion = $_POST['Date_reunion'];
 $Heure_reunion = $_POST['Heure_reunion'];
 $Synthese = $_POST['Synthese_decisions'];
@@ -40,5 +45,5 @@ catch (Exception $e) {
     die("Erreur : " . $e->getMessage() .
         "<br>Transaction annulée (ROLLBACK).");
 }
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 ?>

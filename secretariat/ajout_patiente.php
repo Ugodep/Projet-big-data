@@ -18,6 +18,6 @@ VALUES(NULL, '$Nom', '$Prenom', '$Date_naissance', '$Numero', '$Rue', '$Code_pos
 $Resultat = $base->exec($sql);
 
 echo "Patiente ajoutée avec succès ! Son id est " . $base->lastInsertId();
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

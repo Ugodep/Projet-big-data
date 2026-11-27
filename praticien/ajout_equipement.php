@@ -11,6 +11,6 @@ VALUES(NULL, '$Type_machine', '$Localisation_salle', 'en service')";
 $Resultat = $base->exec($sql);
 
 echo "Équipement ajouté avec succès ! Son id est " . $base->lastInsertId();
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

@@ -25,7 +25,10 @@ CREATE TABLE Professionnel (
     Prenom       VARCHAR(50),
     Specialite   VARCHAR(60),
     Telephone    VARCHAR(20),
-    Email        VARCHAR(100)
+    Email        VARCHAR(100),
+    Login        VARCHAR(50) UNIQUE,
+    Mot_de_passe VARCHAR(255),
+    Actif        TINYINT NOT NULL DEFAULT 1
 ) ENGINE=InnoDB;
 
 CREATE TABLE Reunion (
@@ -160,12 +163,12 @@ CREATE TABLE Resultat_anapath (
 
 -- Données de départ (fictives)
 
-INSERT INTO Professionnel (Nom, Prenom, Specialite, Telephone, Email) VALUES
-('Dupont', 'Marie', 'Radiologue', '065111111', 'marie.dupont@hopital.be'),
-('Lambert', 'Pierre', 'Gynécologue', '065222222', 'pierre.lambert@hopital.be'),
-('Maes', 'Sophie', 'Oncologue', '065333333', 'sophie.maes@hopital.be'),
-('Renard', 'Thomas', 'Anatomopathologiste', '065444444', 'thomas.renard@hopital.be'),
-('Petit', 'Claire', 'Chirurgienne', '065555555', 'claire.petit@hopital.be');
+INSERT INTO Professionnel (Nom, Prenom, Specialite, Telephone, Email, Login, Mot_de_passe) VALUES
+('Dupont', 'Marie', 'Radiologue', '065111111', 'marie.dupont@hopital.be', 'dupont', '$2y$10$7AD8CRSdewRdjc/wmMm/weoY0ilWpZAcFdzz/TLNja63TH5ygwwey'),
+('Lambert', 'Pierre', 'Gynécologue', '065222222', 'pierre.lambert@hopital.be', 'lambert', '$2y$10$7AD8CRSdewRdjc/wmMm/weoY0ilWpZAcFdzz/TLNja63TH5ygwwey'),
+('Maes', 'Sophie', 'Oncologue', '065333333', 'sophie.maes@hopital.be', 'maes', '$2y$10$7AD8CRSdewRdjc/wmMm/weoY0ilWpZAcFdzz/TLNja63TH5ygwwey'),
+('Renard', 'Thomas', 'Anatomopathologiste', '065444444', 'thomas.renard@hopital.be', 'renard', '$2y$10$7AD8CRSdewRdjc/wmMm/weoY0ilWpZAcFdzz/TLNja63TH5ygwwey'),
+('Petit', 'Claire', 'Chirurgienne', '065555555', 'claire.petit@hopital.be', 'petit', '$2y$10$7AD8CRSdewRdjc/wmMm/weoY0ilWpZAcFdzz/TLNja63TH5ygwwey');
 
 INSERT INTO Patiente (Nom, Prenom, Date_naissance, Numero, Rue, Code_postal, Localite, Telephone, Email) VALUES
 ('Martin', 'Julie', '1975-03-12', '12', 'Rue de Mons', '7000', 'Mons', '0470101010', 'julie.martin@mail.be'),

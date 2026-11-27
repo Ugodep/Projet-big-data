@@ -13,6 +13,6 @@ VALUES(NULL, '$Date_examen', '$Heure_examen', '$Id_Demande', '$Id_Equipement')";
 $Resultat = $base->exec($sql);
 
 echo "Examen enregistré avec succès ! Son id est " . $base->lastInsertId();
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 
 ?>

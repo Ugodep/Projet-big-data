@@ -18,5 +18,5 @@ require __DIR__ . '/../connexion.php';
     echo "<br>la patiente ".$supp." est supprimée";
 	}
 }
-echo "<br><a href='index.html'>Retour</a>";
+echo "<br><a href='index.php'>Retour</a>";
 ?>

@@ -14,5 +14,5 @@ $sql = "UPDATE Patiente SET Telephone = '$Telephone', Email = '$Email', Localite
 catch (Exception $e){
 die('Erreur : '.$e->getMessage());
 }
-echo "<a href='index.html'>Retour</a>";
+echo "<a href='index.php'>Retour</a>";
 ?>
