@@ -40,21 +40,14 @@
 </form>
 
 
-<h2>4. Ajouter un antécédent familial</h2>
-<form action="ajout_antecedent_familial.php" method="post">
+<h2>4. Prendre un rendez-vous (ajouter une consultation)</h2>
+<form action="ajout_consultation.php" method="post">
     Id patiente : <input type="number" name="Id_Patiente"><br>
-    Nom de la maladie : <input type="text" name="Nom_maladie"><br>
-    Lien de parente : <input type="text" name="Lien_parente"><br>
-    <input type="submit" value="Ajouter">
-</form>
-
-<h2>5. Ajouter un antécédent médical</h2>
-<form action="ajout_antecedent_medical.php" method="post">
-    Id patiente : <input type="number" name="Id_Patiente"><br>
-    Date du diagnostic : <input type="date" name="Date_diagnostic"><br>
-    Nom de la maladie : <input type="text" name="Nom_maladie"><br>
-    Traitements : <input type="text" name="Traitements"><br>
-    <input type="submit" value="Ajouter">
+    Id praticien : <input type="number" name="Id_Praticien"><br>
+    Date : <input type="date" name="Date_consultation"><br>
+    Heure : <input type="time" name="Heure_consultation"><br>
+    Motif : <input type="text" name="Motif_clinique"><br>
+    <input type="submit" value="Enregistrer le rendez-vous">
 </form>
 </body>
 </html>
