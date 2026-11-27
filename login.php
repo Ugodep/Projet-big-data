@@ -16,7 +16,7 @@ else if ($login == 'secretariat' && $mdp == 'secretariat')
 else
 {
 	// praticien : on le cherche dans la table
-	require __DIR__ . '/connexion.php';
+	require 'connexion.php';
 	$sql = "SELECT * FROM Professionnel WHERE Login = :Login";
 	$requete = $base->prepare($sql);
 	$requete->execute([

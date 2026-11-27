@@ -1,13 +1,10 @@
 <?php
 // il faut etre connecté
 session_start();
-if (!isset($_SESSION['id_praticien']))
-{
-    die("Connecte-toi d'abord. <a href='../index.html'>Connexion</a>");
-}
+if (!isset($_SESSION['id_praticien'])) { die("Connecte-toi d'abord"); }
 $Id_Praticien = $_SESSION['id_praticien'];
 $Id_Patiente = $_POST['Id_Patiente'];
-require __DIR__ . '/../connexion.php';
+require '../connexion.php';
 ?>
 <html>
 <head>

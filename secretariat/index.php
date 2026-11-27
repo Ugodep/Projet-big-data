@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../connexion.php';
+require '../connexion.php';
 ?>
 <html>
 <head>

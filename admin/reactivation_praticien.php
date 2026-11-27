@@ -2,7 +2,7 @@
 
 $id=$_POST['Id_Praticien'];
 
-require __DIR__ . '/../connexion.php';
+require '../connexion.php';
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "UPDATE Professionnel SET Actif = 1 WHERE Id_Praticien='$id'";

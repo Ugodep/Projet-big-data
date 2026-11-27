@@ -1,12 +1,9 @@
 <?php
 // il faut etre connecté
 session_start();
-if (!isset($_SESSION['id_praticien']))
-{
-    die("Connecte-toi d'abord. <a href='../index.html'>Connexion</a>");
-}
+if (!isset($_SESSION['id_praticien'])) { die("Connecte-toi d'abord"); }
 $Id_Praticien = $_SESSION['id_praticien'];
-require __DIR__ . '/../connexion.php';
+require '../connexion.php';
 ?>
 <html>
 <head>
@@ -67,18 +64,16 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 ?>
 </table>
 
-<h2>Examens demandés, pas encore réalisés</h2>
+<h2>Examens demandés</h2>
 <table>
 <tr><th>Id demande</th><th>Examen</th><th>Patiente</th></tr>
 <?php
-// les demandes qui n'ont pas encore d'examen
 $sql = "SELECT D.Id_Demande, D.Type_examen_demande, P.Nom, P.Prenom
 FROM Demande_examen D
 INNER JOIN Prescription Pr ON Pr.Id_Prescription = D.Id_Prescription
 INNER JOIN Consultation C ON C.Id_Consultation = Pr.Id_Consultation
 INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente
-LEFT JOIN Examen E ON E.Id_Demande = D.Id_Demande
-WHERE E.Id_Examen IS NULL AND C.Id_Praticien = '$Id_Praticien'";
+WHERE C.Id_Praticien = '$Id_Praticien'";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -117,6 +112,32 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 	$Nature=$ligne['Nature_lesion'];
 	$Caractere=$ligne['Caractere_benin_malin'];
 	echo "<tr><td>$id</td><td>$Nom $Prenom</td><td>$Examen</td><td>$Date</td><td>$Classification</td><td>$Nature</td><td>$Caractere</td></tr>";
+}
+?>
+</table>
+
+<h2>Fichiers médicaux</h2>
+<table>
+<tr><th>Id</th><th>Examen</th><th>Nom du fichier</th><th>Format</th><th>Taille</th><th>Chemin</th></tr>
+<?php
+// les fichiers des examens de mes patientes
+$sql = "SELECT F.*
+FROM Fichier_medical F
+INNER JOIN Examen E ON E.Id_Examen = F.Id_Examen
+INNER JOIN Demande_examen D ON D.Id_Demande = E.Id_Demande
+INNER JOIN Prescription Pr ON Pr.Id_Prescription = D.Id_Prescription
+INNER JOIN Consultation C ON C.Id_Consultation = Pr.Id_Consultation
+WHERE C.Id_Praticien = '$Id_Praticien'";
+$resultat=$base->query($sql);
+while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
+{
+	$id=$ligne['Id_Fichier'];
+	$Examen=$ligne['Id_Examen'];
+	$Nom=$ligne['Nom_fichier'];
+	$Format=$ligne['Format_fichier'];
+	$Taille=$ligne['Taille_octets'];
+	$Chemin=$ligne['Chemin_ou_URL_stockage'];
+	echo "<tr><td>$id</td><td>$Examen</td><td>$Nom</td><td>$Format</td><td>$Taille octets</td><td>$Chemin</td></tr>";
 }
 ?>
 </table>

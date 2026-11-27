@@ -8,7 +8,7 @@ $Type_examen_demande = $_POST['Type_examen_demande'];
 
 try {
 
-    require __DIR__ . '/../connexion.php';
+    require '../connexion.php';
     $base->beginTransaction();
     $sql = "INSERT INTO Prescription (Date_prescription, Heure_prescription, Type_prescription, Indication_clinique, Instructions_complementaires, Id_Consultation)
             VALUES (CURDATE(), CURTIME(), '$Type_prescription', '$Indication_clinique', '$Instructions', :Id_Consultation)";
@@ -32,8 +32,7 @@ catch (Exception $e) {
     if (isset($base) && $base->inTransaction()) {
         $base->rollBack();
     }
-    die("Erreur : " . $e->getMessage() .
-        "<br>Transaction annulée ROLLBACK.");
+    die("Erreur : " . $e->getMessage() . "<br>Transaction annulée ROLLBACK.");
 }
 echo "<br><a href='index.php'>Retour</a>";
 ?>

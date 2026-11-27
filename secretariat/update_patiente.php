@@ -4,15 +4,17 @@ $Nom = $_POST['Nom'];
 $Telephone = $_POST['Telephone'];
 $Email = $_POST['Email'];
 $Localite = $_POST['Localite'];
-try{
-require __DIR__ . '/../connexion.php';
-	echo "Connexion à la base de données réussie<br>";
+require '../connexion.php';
+
 $sql = "UPDATE Patiente SET Telephone = '$Telephone', Email = '$Email', Localite = '$Localite' WHERE Nom = '$Nom'";
-	$Resultat = $base->exec($sql);
-	echo "<h3>Une patiente a été bien modifiée</h3>";
-   }
-catch (Exception $e){
-die('Erreur : '.$e->getMessage());
+$Resultat = $base->exec($sql);
+if($Resultat == 0)
+{
+echo "aucune patiente modifiée avec le nom ".$Nom;
 }
-echo "<a href='index.php'>Retour</a>";
+else
+{
+echo "la patiente ".$Nom." est modifiée";
+}
+echo "<br><a href='index.php'>Retour</a>";
 ?>

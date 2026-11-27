@@ -3,10 +3,7 @@
 $Id_Patiente = $_POST['Id_Patiente'];
 // il faut etre connecté
 session_start();
-if (!isset($_SESSION['id_praticien']))
-{
-    die("Connecte-toi d'abord. <a href='../index.html'>Connexion</a>");
-}
+if (!isset($_SESSION['id_praticien'])) { die("Connecte-toi d'abord"); }
 $Id_Praticien = $_SESSION['id_praticien'];
 $Date_reunion = $_POST['Date_reunion'];
 $Heure_reunion = $_POST['Heure_reunion'];
@@ -15,7 +12,7 @@ $Plan = $_POST['Plan_traitement_propose'];
 
 try {
 
-    require __DIR__ . '/../connexion.php';
+    require '../connexion.php';
     $base->beginTransaction();
     $sql = "INSERT INTO Reunion (Date_reunion, Heure_reunion)
             VALUES ('$Date_reunion', '$Heure_reunion')";
@@ -43,8 +40,7 @@ catch (Exception $e) {
     if (isset($base) && $base->inTransaction()) {
         $base->rollBack();
     }
-    die("Erreur : " . $e->getMessage() .
-        "<br>Transaction annulée ROLLBACK.");
+    die("Erreur : " . $e->getMessage() . "<br>Transaction annulée ROLLBACK.");
 }
 echo "<br><a href='index.php'>Retour</a>";
 ?>
