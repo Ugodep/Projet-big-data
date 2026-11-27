@@ -1,0 +1,11 @@
+body { font-family: Arial, sans-serif; background: #fdf2f6; margin: 0; padding: 30px 40px; color: #333; }
+h1 { color: #d6336c; }
+h2 { color: #555; font-size: 18px; border-bottom: 2px solid #d6336c; padding-bottom: 5px; }
+form { background: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; line-height: 2; }
+input[type=text], input[type=number], input[type=date], input[type=time], input[type=password] { padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+input[type=submit] { background: #d6336c; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; }
+input[type=submit]:hover { background: #b02a58; }
+a { color: #d6336c; }
+.connexion { max-width: 340px; margin: 80px auto; text-align: center; }
+.connexion form { text-align: left; }
+img { margin-bottom: 10px; }

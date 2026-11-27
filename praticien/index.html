@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Professionnel de santé</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../icone.svg">
+</head>
+<body>
+<img src="../logo.svg" alt="Pink Data" width="200">
+<h1>Professionnel de santé</h1>
+<a href="../index.html">Se déconnecter</a>
+
+<h2>1. Afficher les patientes</h2>
+<form action="affichage_patiente.php" method="post">
+    <input type="submit" value="Afficher">
+</form>
+
+<h2>2. Voir le dossier d'une patiente</h2>
+<form action="jointure_patiente.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    <input type="submit" value="Voir le dossier">
+</form>
+
+<h2>3. Supprimer une patiente</h2>
+<form action="suppression_patiente.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    <input type="submit" value="Supprimer">
+</form>
+
+<h2>4. Afficher les professionnels</h2>
+<form action="affichage_praticien.php" method="post">
+    <input type="submit" value="Afficher">
+</form>
+
+<h2>5. Ajouter un équipement</h2>
+<form action="ajout_equipement.php" method="post">
+    Type de machine : <input type="text" name="Type_machine"><br>
+    Salle : <input type="text" name="Localisation_salle"><br>
+    <input type="submit" value="Ajouter">
+</form>
+
+<h2>6. Parcours : consultation + prescription + demande d'examen</h2>
+<form action="transaction_parcours.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    Id praticien : <input type="number" name="Id_Praticien"><br>
+    Date : <input type="date" name="Date_consultation"><br>
+    Heure : <input type="time" name="Heure_consultation"><br>
+    Motif : <input type="text" name="Motif_clinique"><br>
+    Symptomes : <input type="text" name="Symptomes_observes"><br>
+    Conclusions : <input type="text" name="Conclusions"><br>
+    Type de prescription : <input type="text" name="Type_prescription"><br>
+    Indication clinique : <input type="text" name="Indication_clinique"><br>
+    Instructions : <input type="text" name="Instructions_complementaires"><br>
+    Examen demande : <input type="text" name="Type_examen_demande"><br>
+    <input type="submit" value="Valider la transaction">
+</form>
+
+<h2>7. Enregistrer un examen réalisé</h2>
+<form action="ajout_examen.php" method="post">
+    Id demande : <input type="number" name="Id_Demande"><br>
+    Id equipement : <input type="number" name="Id_Equipement"><br>
+    Date : <input type="date" name="Date_examen"><br>
+    Heure : <input type="time" name="Heure_examen"><br>
+    <input type="submit" value="Enregistrer l'examen">
+</form>
+
+<h2>8. Compte rendu radiologique</h2>
+<form action="ajout_cr_radio.php" method="post">
+    Id examen : <input type="number" name="Id_Examen"><br>
+    Id praticien : <input type="number" name="Id_Praticien"><br>
+    Date : <input type="date" name="Date_compte_rendu"><br>
+    Localisation des lesions : <input type="text" name="Localisation_lesions"><br>
+    Classification : <input type="text" name="Classification"><br>
+    Description des images : <input type="text" name="Description_images"><br>
+    Conclusion : <input type="text" name="Conclusion"><br>
+    <input type="submit" value="Enregistrer">
+</form>
+
+<h2>9. Résultat anatomopathologique</h2>
+<form action="ajout_anapath.php" method="post">
+    Id examen : <input type="number" name="Id_Examen"><br>
+    Id praticien : <input type="number" name="Id_Praticien"><br>
+    Date : <input type="date" name="Date_resultat"><br>
+    Type de prelevement : <input type="text" name="Type_prelevement"><br>
+    Nature de la lesion : <input type="text" name="Nature_lesion"><br>
+    Benin ou malin : <input type="text" name="Caractere_benin_malin"><br>
+    Descriptions : <input type="text" name="Descriptions"><br>
+    Conclusions : <input type="text" name="Conclusions"><br>
+    <input type="submit" value="Enregistrer">
+</form>
+
+<h2>10. Suivi des examens</h2>
+<form action="jointure_examens.php" method="post">
+    <input type="submit" value="Afficher le suivi">
+</form>
+
+<h2>11. Réunion multidisciplinaire</h2>
+<form action="ajout_reunion.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    Id praticien participant : <input type="number" name="Id_Praticien"><br>
+    Date : <input type="date" name="Date_reunion"><br>
+    Heure : <input type="time" name="Heure_reunion"><br>
+    Synthese des decisions : <input type="text" name="Synthese_decisions"><br>
+    Plan de traitement propose : <input type="text" name="Plan_traitement_propose"><br>
+    <input type="submit" value="Enregistrer la réunion">
+</form>
+
+<h2>12. Voir les réunions d'une patiente</h2>
+<form action="affichage_reunion.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    <input type="submit" value="Afficher les réunions">
+</form>
+
+<h2>13. Fichier médical</h2>
+<form action="ajout_fichier.php" method="post">
+    Id examen : <input type="number" name="Id_Examen"><br>
+    Nom du fichier : <input type="text" name="Nom_fichier"><br>
+    Format : <input type="text" name="Format_fichier"><br>
+    Largeur (pixels) : <input type="number" name="Largeur_pixels"><br>
+    Hauteur (pixels) : <input type="number" name="Hauteur_pixels"><br>
+    Taille (octets) : <input type="number" name="Taille_octets"><br>
+    Date de creation : <input type="date" name="Date_creation"><br>
+    Chemin ou URL : <input type="text" name="Chemin_ou_URL_stockage"><br>
+    <input type="submit" value="Enregistrer le fichier">
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Administrateur</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../icone.svg">
+</head>
+<body>
+<img src="../logo.svg" alt="Pink Data" width="200">
+<h1>Administrateur</h1>
+<a href="../index.html">Se déconnecter</a>
+
+<h2>1. Ajouter un professionnel de santé</h2>
+<form action="ajout_praticien.php" method="post">
+    Nom : <input type="text" name="Nom"><br>
+    Prenom : <input type="text" name="Prenom"><br>
+    Specialite : <input type="text" name="Specialite"><br>
+    Telephone : <input type="text" name="Telephone"><br>
+    Email : <input type="text" name="Email"><br>
+    <input type="submit" value="Ajouter">
+</form>
+
+<h2>2. Afficher les professionnels</h2>
+<form action="affichage_praticien.php" method="post">
+    <input type="submit" value="Afficher">
+</form>
+<h2>3. Supprimer une professionnel de santé</h2>
+<form action="suppression_praticien.php" method="post">
+    Id professionnel : <input type="number" name="Id_Praticien"><br>
+    <input type="submit" value="Supprimer">
+</form>
+</body>
+</html>

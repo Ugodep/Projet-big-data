@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Secrétariat</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../icone.svg">
+</head>
+<body>
+<img src="../logo.svg" alt="Pink Data" width="200">
+<h1>Secrétariat</h1>
+<a href="../index.html">Se déconnecter</a>
+
+<h2>1. Afficher les patientes</h2>
+<form action="affichage_patiente.php" method="post">
+    <input type="submit" value="Afficher">
+</form>
+
+<h2>2. Ajouter une patiente</h2>
+<form action="ajout_patiente.php" method="post">
+    Nom : <input type="text" name="Nom"><br>
+    Prenom : <input type="text" name="Prenom"><br>
+    Date de naissance : <input type="date" name="Date_naissance"><br>
+    Numero : <input type="text" name="Numero"><br>
+    Rue : <input type="text" name="Rue"><br>
+    Code postal : <input type="text" name="Code_postal"><br>
+    Localite : <input type="text" name="Localite"><br>
+    Telephone : <input type="text" name="Telephone"><br>
+    Email : <input type="text" name="Email"><br>
+    <input type="submit" value="Ajouter">
+</form>
+
+
+<h2>3. Modifier une patiente (par son nom)</h2>
+<form action="update_patiente.php" method="post">
+    Nom : <input type="text" name="Nom"><br>
+    Nouveau telephone : <input type="text" name="Telephone"><br>
+    Nouvel email : <input type="text" name="Email"><br>
+    Nouvelle localite : <input type="text" name="Localite"><br>
+    <input type="submit" value="Modifier">
+</form>
+
+
+<h2>4. Ajouter un antécédent familial</h2>
+<form action="ajout_antecedent_familial.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    Nom de la maladie : <input type="text" name="Nom_maladie"><br>
+    Lien de parente : <input type="text" name="Lien_parente"><br>
+    <input type="submit" value="Ajouter">
+</form>
+
+<h2>5. Ajouter un antécédent médical</h2>
+<form action="ajout_antecedent_medical.php" method="post">
+    Id patiente : <input type="number" name="Id_Patiente"><br>
+    Date du diagnostic : <input type="date" name="Date_diagnostic"><br>
+    Nom de la maladie : <input type="text" name="Nom_maladie"><br>
+    Traitements : <input type="text" name="Traitements"><br>
+    <input type="submit" value="Ajouter">
+</form>
+</body>
+</html>
