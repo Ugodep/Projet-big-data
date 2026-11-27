@@ -4,6 +4,7 @@ session_start();
 $login = $_POST['login'];
 $mdp = $_POST['mdp'];
 
+// admin et secrétariat : comptes fixes
 if ($login == 'admin' && $mdp == 'admin')
 {
 	header('Location: admin/index.php');
@@ -14,6 +15,7 @@ else if ($login == 'secretariat' && $mdp == 'secretariat')
 }
 else
 {
+	// praticien : on le cherche dans la table
 	require __DIR__ . '/connexion.php';
 	$sql = "SELECT * FROM Professionnel WHERE Login = :Login";
 	$requete = $base->prepare($sql);
@@ -22,16 +24,21 @@ else
 	]);
 	$ligne = $requete->fetch(PDO::FETCH_ASSOC);
 
-	if ($ligne && password_verify($mdp, $ligne['Mot_de_passe']) && $ligne['Actif'] == 0)
+	// password_verify compare avec le mot de passe crypté
+	if ($ligne && password_verify($mdp, $ligne['Mot_de_passe']))
 	{
-		echo "Ce compte est désactivé<br>";
-		echo "<a href='index.html'>Retour</a>";
-	}
-	else if ($ligne && password_verify($mdp, $ligne['Mot_de_passe']))
-	{
-		$_SESSION['id_praticien'] = $ligne['Id_Praticien'];
-		$_SESSION['nom'] = $ligne['Nom'];
-		header('Location: praticien/index.php');
+		if ($ligne['Actif'] == 0)
+		{
+			echo "Ce compte est désactivé<br>";
+			echo "<a href='index.html'>Retour</a>";
+		}
+		else
+		{
+			// on retient qui est connecté
+			$_SESSION['id_praticien'] = $ligne['Id_Praticien'];
+			$_SESSION['nom'] = $ligne['Nom'];
+			header('Location: praticien/index.php');
+		}
 	}
 	else
 	{

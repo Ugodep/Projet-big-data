@@ -17,7 +17,8 @@ require __DIR__ . '/../connexion.php';
 <table>
 <tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Naissance</th><th>Localité</th><th>Téléphone</th><th>Email</th></tr>
 <?php
-$sql = "SELECT * FROM Patiente";
+$sql = "SELECT *
+FROM Patiente";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -37,7 +38,9 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 <table>
 <tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Spécialité</th></tr>
 <?php
-$sql = "SELECT * FROM Professionnel WHERE Actif = 1";
+$sql = "SELECT *
+FROM Professionnel
+WHERE Actif = 1";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -54,7 +57,10 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 <table>
 <tr><th>Id</th><th>Date</th><th>Heure</th><th>Patiente</th><th>Praticien</th><th>Motif</th></tr>
 <?php
-$sql = "SELECT C.Id_Consultation, C.Date_consultation, C.Heure_consultation, C.Motif_clinique, P.Nom AS NomPatiente, P.Prenom, Pro.Nom AS NomPraticien FROM Consultation C INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente INNER JOIN Professionnel Pro ON Pro.Id_Praticien = C.Id_Praticien";
+$sql = "SELECT C.Id_Consultation, C.Date_consultation, C.Heure_consultation, C.Motif_clinique, P.Nom AS NomPatiente, P.Prenom, Pro.Nom AS NomPraticien
+FROM Consultation C
+INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente
+INNER JOIN Professionnel Pro ON Pro.Id_Praticien = C.Id_Praticien";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {

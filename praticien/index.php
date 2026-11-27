@@ -1,4 +1,5 @@
 <?php
+// il faut etre connecté
 session_start();
 if (!isset($_SESSION['id_praticien']))
 {
@@ -23,7 +24,11 @@ require __DIR__ . '/../connexion.php';
 <table>
 <tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Naissance</th><th>Localité</th><th>Téléphone</th></tr>
 <?php
-$sql = "SELECT DISTINCT P.* FROM Patiente P INNER JOIN Consultation C ON C.Id_Patiente = P.Id_Patiente WHERE C.Id_Praticien = '$Id_Praticien'";
+// les patientes qui ont une consultation avec moi
+$sql = "SELECT DISTINCT P.*
+FROM Patiente P
+INNER JOIN Consultation C ON C.Id_Patiente = P.Id_Patiente
+WHERE C.Id_Praticien = '$Id_Praticien'";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -42,7 +47,10 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 <table>
 <tr><th>Id</th><th>Date</th><th>Heure</th><th>Patiente</th><th>Motif</th><th>Symptômes</th><th>Conclusions</th></tr>
 <?php
-$sql = "SELECT C.*, P.Nom AS NomPatiente, P.Prenom FROM Consultation C INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente WHERE C.Id_Praticien = '$Id_Praticien'";
+$sql = "SELECT C.*, P.Nom AS NomPatiente, P.Prenom
+FROM Consultation C
+INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente
+WHERE C.Id_Praticien = '$Id_Praticien'";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -63,7 +71,14 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 <table>
 <tr><th>Id demande</th><th>Examen</th><th>Patiente</th></tr>
 <?php
-$sql = "SELECT D.Id_Demande, D.Type_examen_demande, P.Nom, P.Prenom FROM Demande_examen D INNER JOIN Prescription Pr ON Pr.Id_Prescription = D.Id_Prescription INNER JOIN Consultation C ON C.Id_Consultation = Pr.Id_Consultation INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente LEFT JOIN Examen E ON E.Id_Demande = D.Id_Demande WHERE E.Id_Examen IS NULL AND C.Id_Praticien = '$Id_Praticien'";
+// les demandes qui n'ont pas encore d'examen
+$sql = "SELECT D.Id_Demande, D.Type_examen_demande, P.Nom, P.Prenom
+FROM Demande_examen D
+INNER JOIN Prescription Pr ON Pr.Id_Prescription = D.Id_Prescription
+INNER JOIN Consultation C ON C.Id_Consultation = Pr.Id_Consultation
+INNER JOIN Patiente P ON P.Id_Patiente = C.Id_Patiente
+LEFT JOIN Examen E ON E.Id_Demande = D.Id_Demande
+WHERE E.Id_Examen IS NULL AND C.Id_Praticien = '$Id_Praticien'";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -80,7 +95,16 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 <table>
 <tr><th>Id examen</th><th>Patiente</th><th>Examen</th><th>Date</th><th>Classification</th><th>Lésion</th><th>Bénin / malin</th></tr>
 <?php
-$sql = "SELECT E.Id_Examen, P.Nom, P.Prenom, D.Type_examen_demande, E.Date_examen, CR.Classification, RA.Nature_lesion, RA.Caractere_benin_malin FROM Patiente P INNER JOIN Consultation C ON C.Id_Patiente = P.Id_Patiente INNER JOIN Prescription Pr ON Pr.Id_Consultation = C.Id_Consultation INNER JOIN Demande_examen D ON D.Id_Prescription = Pr.Id_Prescription INNER JOIN Examen E ON E.Id_Demande = D.Id_Demande LEFT JOIN Compte_rendu_radiologique CR ON CR.Id_Examen = E.Id_Examen LEFT JOIN Resultat_anapath RA ON RA.Id_Examen = E.Id_Examen WHERE C.Id_Praticien = '$Id_Praticien'";
+// LEFT JOIN : on garde l'examen meme sans compte rendu
+$sql = "SELECT E.Id_Examen, P.Nom, P.Prenom, D.Type_examen_demande, E.Date_examen, CR.Classification, RA.Nature_lesion, RA.Caractere_benin_malin
+FROM Patiente P
+INNER JOIN Consultation C ON C.Id_Patiente = P.Id_Patiente
+INNER JOIN Prescription Pr ON Pr.Id_Consultation = C.Id_Consultation
+INNER JOIN Demande_examen D ON D.Id_Prescription = Pr.Id_Prescription
+INNER JOIN Examen E ON E.Id_Demande = D.Id_Demande
+LEFT JOIN Compte_rendu_radiologique CR ON CR.Id_Examen = E.Id_Examen
+LEFT JOIN Resultat_anapath RA ON RA.Id_Examen = E.Id_Examen
+WHERE C.Id_Praticien = '$Id_Praticien'";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -101,7 +125,8 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 <table>
 <tr><th>Id</th><th>Type</th><th>Salle</th><th>État</th></tr>
 <?php
-$sql = "SELECT * FROM Equipement";
+$sql = "SELECT *
+FROM Equipement";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {

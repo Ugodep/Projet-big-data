@@ -15,9 +15,10 @@ require __DIR__ . '/../connexion.php';
 
 <h2>Professionnels de santé</h2>
 <table>
-<tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Spécialité</th><th>Téléphone</th><th>Email</th><th>Identifiant</th><th>Actif</th></tr>
+<tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Spécialité</th><th>Téléphone</th><th>Email</th><th>Identifiant</th><th>Actif (1 = oui)</th></tr>
 <?php
-$sql = "SELECT * FROM Professionnel";
+$sql = "SELECT *
+FROM Professionnel";
 $resultat=$base->query($sql);
 while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 {
@@ -29,7 +30,6 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 	$Email=$ligne['Email'];
 	$Login=$ligne['Login'];
 	$Actif=$ligne['Actif'];
-	if ($Actif == 1) { $Actif = 'oui'; } else { $Actif = 'non'; }
 	echo "<tr><td>$id</td><td>$Nom</td><td>$Prenom</td><td>$Specialite</td><td>$Telephone</td><td>$Email</td><td>$Login</td><td>$Actif</td></tr>";
 }
 ?>

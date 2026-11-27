@@ -1,6 +1,7 @@
 <?php
 
 $Id_Patiente = $_POST['Id_Patiente'];
+// il faut etre connecté
 session_start();
 if (!isset($_SESSION['id_praticien']))
 {
