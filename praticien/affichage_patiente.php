@@ -1,6 +1,6 @@
 <?php
 try{
-$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+require __DIR__ . '/../connexion.php';
 	echo "Connexion à la base de données réussie<br>";
 
 	$sql = "SELECT * FROM Patiente";

@@ -3,7 +3,7 @@
 $Id_Patiente = $_POST['Id_Patiente'];
 $Nom_maladie = $_POST['Nom_maladie'];
 $Lien_parente = $_POST['Lien_parente'];
-$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+require __DIR__ . '/../connexion.php';
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "INSERT INTO Antecedent_familial(Id_Antecedent_fam, Nom_maladie, Lien_parente, Id_Patiente)

@@ -8,7 +8,7 @@ $Nature_lesion = $_POST['Nature_lesion'];
 $Caractere = $_POST['Caractere_benin_malin'];
 $Descriptions = $_POST['Descriptions'];
 $Conclusions = $_POST['Conclusions'];
-$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+require __DIR__ . '/../connexion.php';
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "INSERT INTO Resultat_anapath(Id_Resultat_anapath, Date_resultat, Type_prelevement, Descriptions, Nature_lesion, Caractere_benin_malin, Conclusions, Id_Examen, Id_Praticien)

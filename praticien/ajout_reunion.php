@@ -9,7 +9,7 @@ $Plan = $_POST['Plan_traitement_propose'];
 
 try {
 
-    $base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+    require __DIR__ . '/../connexion.php';
     $base->beginTransaction();
     $sql = "INSERT INTO Reunion (Date_reunion, Heure_reunion)
             VALUES ('$Date_reunion', '$Heure_reunion')";

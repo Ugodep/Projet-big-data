@@ -2,7 +2,7 @@
 
 $Id_Patiente = $_POST['Id_Patiente'];
 try{
-$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+require __DIR__ . '/../connexion.php';
 	echo "Connexion à la base de données réussie<br>";
 
 	echo "<br> voila les consultations de la patiente :<br><br>";

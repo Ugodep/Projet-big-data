@@ -8,7 +8,7 @@ $Type_examen_demande = $_POST['Type_examen_demande'];
 
 try {
 
-    $base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+    require __DIR__ . '/../connexion.php';
     $base->beginTransaction();
     $sql = "INSERT INTO Prescription (Date_prescription, Heure_prescription, Type_prescription, Indication_clinique, Instructions_complementaires, Id_Consultation)
             VALUES (CURDATE(), CURTIME(), '$Type_prescription', '$Indication_clinique', '$Instructions', :Id_Consultation)";

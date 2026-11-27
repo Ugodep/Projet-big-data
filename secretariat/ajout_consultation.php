@@ -5,7 +5,7 @@ $Id_Praticien = $_POST['Id_Praticien'];
 $Date_consultation = $_POST['Date_consultation'];
 $Heure_consultation = $_POST['Heure_consultation'];
 $Motif_clinique = $_POST['Motif_clinique'];
-$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
+require __DIR__ . '/../connexion.php';
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "INSERT INTO Consultation(Id_Consultation, Date_consultation, Heure_consultation, Motif_clinique, Id_Patiente, Id_Praticien)
