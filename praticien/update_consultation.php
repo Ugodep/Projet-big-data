@@ -20,7 +20,7 @@ $Resultat = $base->exec($sql);
 
 if($Resultat == 0)
 {
-echo "aucune consultation modifiée (id inconnu, ou ce n'est pas ta consultation)";
+echo "aucune consultation modifiée";
 }
 else
 {

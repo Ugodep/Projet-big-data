@@ -40,7 +40,7 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 	$Specialite=$ligne['Specialite'];
 	$Examen=$ligne['Type_examen_demande'];
 	$Classification=$ligne['Classification'];
-	echo "<tr><td>$Date</td><td>$Motif</td><td>$Praticien ($Specialite)</td><td>$Examen</td><td>$Classification</td></tr>";
+	echo "<tr><td>$Date</td><td>$Motif</td><td>$Praticien, $Specialite</td><td>$Examen</td><td>$Classification</td></tr>";
 }
 ?>
 </table>

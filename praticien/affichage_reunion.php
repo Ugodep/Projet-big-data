@@ -37,7 +37,7 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
 	$Plan=$ligne['Plan_traitement_propose'];
 	$Praticien=$ligne['Nom'];
 	$Specialite=$ligne['Specialite'];
-	echo "<tr><td>$Date</td><td>$Heure</td><td>$Synthese</td><td>$Plan</td><td>$Praticien ($Specialite)</td></tr>";
+	echo "<tr><td>$Date</td><td>$Heure</td><td>$Synthese</td><td>$Plan</td><td>$Praticien, $Specialite</td></tr>";
 }
 ?>
 </table>

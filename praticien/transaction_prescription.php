@@ -33,7 +33,7 @@ catch (Exception $e) {
         $base->rollBack();
     }
     die("Erreur : " . $e->getMessage() .
-        "<br>Transaction annulée (ROLLBACK).");
+        "<br>Transaction annulée ROLLBACK.");
 }
 echo "<br><a href='index.php'>Retour</a>";
 ?>

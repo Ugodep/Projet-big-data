@@ -13,7 +13,7 @@ echo "<br>aucun professionnel actif avec l'id ".$id;
 }
 else
 {
-echo "<br>le professionnel ".$id." est désactivé (ses consultations et ses données sont conservées)";
+echo "<br>le professionnel ".$id." est désactivé";
 }
 echo "<br><a href='index.php'>Retour</a>";
 ?>

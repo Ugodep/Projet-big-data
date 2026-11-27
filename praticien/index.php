@@ -162,7 +162,7 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
     <input type="submit" value="Ajouter">
 </form>
 
-<h2>Compléter une consultation (symptômes et conclusions)</h2>
+<h2>Compléter une consultation</h2>
 <form action="update_consultation.php" method="post">
     Id consultation : <input type="number" name="Id_Consultation"><br>
     Symptomes : <input type="text" name="Symptomes_observes"><br>
@@ -170,7 +170,7 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
     <input type="submit" value="Mettre à jour">
 </form>
 
-<h2>Prescription + demande d'examen (transaction)</h2>
+<h2>Prescription + demande d'examen</h2>
 <form action="transaction_prescription.php" method="post">
     Id consultation : <input type="number" name="Id_Consultation"><br>
     Type de prescription : <input type="text" name="Type_prescription"><br>
@@ -240,9 +240,9 @@ while($ligne=$resultat->fetch(PDO::FETCH_ASSOC))
     Id examen : <input type="number" name="Id_Examen"><br>
     Nom du fichier : <input type="text" name="Nom_fichier"><br>
     Format : <input type="text" name="Format_fichier"><br>
-    Largeur (pixels) : <input type="number" name="Largeur_pixels"><br>
-    Hauteur (pixels) : <input type="number" name="Hauteur_pixels"><br>
-    Taille (octets) : <input type="number" name="Taille_octets"><br>
+    Largeur en pixels : <input type="number" name="Largeur_pixels"><br>
+    Hauteur en pixels : <input type="number" name="Hauteur_pixels"><br>
+    Taille en octets : <input type="number" name="Taille_octets"><br>
     Date de creation : <input type="date" name="Date_creation"><br>
     Chemin ou URL : <input type="text" name="Chemin_ou_URL_stockage"><br>
     <input type="submit" value="Enregistrer le fichier">

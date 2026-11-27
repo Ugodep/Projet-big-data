@@ -15,7 +15,7 @@ require __DIR__ . '/../connexion.php';
 
 <h2>Professionnels de santé</h2>
 <table>
-<tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Spécialité</th><th>Téléphone</th><th>Email</th><th>Identifiant</th><th>Actif (1 = oui)</th></tr>
+<tr><th>Id</th><th>Nom</th><th>Prénom</th><th>Spécialité</th><th>Téléphone</th><th>Email</th><th>Identifiant</th><th>Actif</th></tr>
 <?php
 $sql = "SELECT *
 FROM Professionnel";
