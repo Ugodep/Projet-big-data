@@ -1,12 +1,6 @@
 <?php
 
-$Id_Patiente = $_POST['Id_Patiente'];
-$Id_Praticien = $_POST['Id_Praticien'];
-$Date_consultation = $_POST['Date_consultation'];
-$Heure_consultation = $_POST['Heure_consultation'];
-$Motif_clinique = $_POST['Motif_clinique'];
-$Symptomes_observes = $_POST['Symptomes_observes'];
-$Conclusions = $_POST['Conclusions'];
+$Id_Consultation = $_POST['Id_Consultation'];
 $Type_prescription = $_POST['Type_prescription'];
 $Indication_clinique = $_POST['Indication_clinique'];
 $Instructions = $_POST['Instructions_complementaires'];
@@ -14,13 +8,8 @@ $Type_examen_demande = $_POST['Type_examen_demande'];
 
 try {
 
-    require __DIR__ . '/../connexion.php';
+    $base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
     $base->beginTransaction();
-    $sql = "INSERT INTO Consultation (Date_consultation, Heure_consultation, Motif_clinique, Symptomes_observes, Conclusions, Id_Patiente, Id_Praticien)
-            VALUES ('$Date_consultation', '$Heure_consultation', '$Motif_clinique', '$Symptomes_observes', '$Conclusions', '$Id_Patiente', '$Id_Praticien')";
-    $base->exec($sql);
-    $Id_Consultation = $base->lastInsertId();
-    echo "Id de la consultation : " . $Id_Consultation . "<br>";
     $sql = "INSERT INTO Prescription (Date_prescription, Heure_prescription, Type_prescription, Indication_clinique, Instructions_complementaires, Id_Consultation)
             VALUES (CURDATE(), CURTIME(), '$Type_prescription', '$Indication_clinique', '$Instructions', :Id_Consultation)";
     $requete = $base->prepare($sql);

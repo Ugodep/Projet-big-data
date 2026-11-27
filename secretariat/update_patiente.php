@@ -5,7 +5,7 @@ $Telephone = $_POST['Telephone'];
 $Email = $_POST['Email'];
 $Localite = $_POST['Localite'];
 try{
-require __DIR__ . '/../connexion.php';
+$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
 	echo "Connexion à la base de données réussie<br>";
 $sql = "UPDATE Patiente SET Telephone = '$Telephone', Email = '$Email', Localite = '$Localite' WHERE Nom = '$Nom'";
 	$Resultat = $base->exec($sql);

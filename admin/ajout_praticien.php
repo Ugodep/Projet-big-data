@@ -5,7 +5,7 @@ $Prenom = $_POST['Prenom'];
 $Specialite = $_POST['Specialite'];
 $Telephone = $_POST['Telephone'];
 $Email = $_POST['Email'];
-require __DIR__ . '/../connexion.php';
+$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "INSERT INTO Professionnel(Id_Praticien, Nom, Prenom, Specialite, Telephone, Email)

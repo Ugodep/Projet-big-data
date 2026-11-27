@@ -9,7 +9,7 @@ $Code_postal = $_POST['Code_postal'];
 $Localite = $_POST['Localite'];
 $Telephone = $_POST['Telephone'];
 $Email = $_POST['Email'];
-require __DIR__ . '/../connexion.php';
+$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "INSERT INTO Patiente(Id_Patiente, Nom, Prenom, Date_naissance, Numero, Rue, Code_postal, Localite, Telephone, Email)

@@ -4,7 +4,7 @@ $supp=$_POST['Id_Patiente'];
 
 if(isset($supp))
 {
-require __DIR__ . '/../connexion.php';
+$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
 	echo "Connexion réussie à la base de données<br>";
 
     $sql = "delete from Patiente where Id_Patiente='$supp'";

@@ -5,7 +5,7 @@ $supp=$_POST['Id_Praticien'];
 if(isset($supp))
 {
 try {
-	require __DIR__ . '/../connexion.php';
+	$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
 	echo "Connexion réussie à la base de données<br>";
 
 	$sql = "delete from Professionnel where Id_Praticien='$supp'";

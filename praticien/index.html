@@ -43,15 +43,22 @@
     <input type="submit" value="Ajouter">
 </form>
 
-<h2>6. Parcours : consultation + prescription + demande d'examen</h2>
-<form action="transaction_parcours.php" method="post">
-    Id patiente : <input type="number" name="Id_Patiente"><br>
-    Id praticien : <input type="number" name="Id_Praticien"><br>
-    Date : <input type="date" name="Date_consultation"><br>
-    Heure : <input type="time" name="Heure_consultation"><br>
-    Motif : <input type="text" name="Motif_clinique"><br>
+<h2>6. Voir les consultations</h2>
+<form action="affichage_consultation.php" method="post">
+    <input type="submit" value="Afficher les consultations">
+</form>
+
+<h2>7. Compléter une consultation (symptômes et conclusions)</h2>
+<form action="update_consultation.php" method="post">
+    Id consultation : <input type="number" name="Id_Consultation"><br>
     Symptomes : <input type="text" name="Symptomes_observes"><br>
     Conclusions : <input type="text" name="Conclusions"><br>
+    <input type="submit" value="Mettre à jour">
+</form>
+
+<h2>8. Prescription + demande d'examen (transaction)</h2>
+<form action="transaction_prescription.php" method="post">
+    Id consultation : <input type="number" name="Id_Consultation"><br>
     Type de prescription : <input type="text" name="Type_prescription"><br>
     Indication clinique : <input type="text" name="Indication_clinique"><br>
     Instructions : <input type="text" name="Instructions_complementaires"><br>
@@ -59,7 +66,7 @@
     <input type="submit" value="Valider la transaction">
 </form>
 
-<h2>7. Réunion multidisciplinaire</h2>
+<h2>9. Réunion multidisciplinaire</h2>
 <form action="ajout_reunion.php" method="post">
     Id patiente : <input type="number" name="Id_Patiente"><br>
     Id praticien participant : <input type="number" name="Id_Praticien"><br>
@@ -70,20 +77,20 @@
     <input type="submit" value="Enregistrer la réunion">
 </form>
 
-<h2>8. Voir les réunions d'une patiente</h2>
+<h2>10. Voir les réunions d'une patiente</h2>
 <form action="affichage_reunion.php" method="post">
     Id patiente : <input type="number" name="Id_Patiente"><br>
     <input type="submit" value="Afficher les réunions">
 </form>
 
-<h2>9. Ajouter un équipement</h2>
+<h2>11. Ajouter un équipement</h2>
 <form action="ajout_equipement.php" method="post">
     Type de machine : <input type="text" name="Type_machine"><br>
     Salle : <input type="text" name="Localisation_salle"><br>
     <input type="submit" value="Ajouter">
 </form>
 
-<h2>10. Enregistrer un examen réalisé</h2>
+<h2>12. Enregistrer un examen réalisé</h2>
 <form action="ajout_examen.php" method="post">
     Id demande : <input type="number" name="Id_Demande"><br>
     Id equipement : <input type="number" name="Id_Equipement"><br>
@@ -92,7 +99,7 @@
     <input type="submit" value="Enregistrer l'examen">
 </form>
 
-<h2>11. Compte rendu radiologique</h2>
+<h2>13. Compte rendu radiologique</h2>
 <form action="ajout_cr_radio.php" method="post">
     Id examen : <input type="number" name="Id_Examen"><br>
     Id praticien : <input type="number" name="Id_Praticien"><br>
@@ -104,7 +111,7 @@
     <input type="submit" value="Enregistrer">
 </form>
 
-<h2>12. Résultat anatomopathologique</h2>
+<h2>14. Résultat anatomopathologique</h2>
 <form action="ajout_anapath.php" method="post">
     Id examen : <input type="number" name="Id_Examen"><br>
     Id praticien : <input type="number" name="Id_Praticien"><br>
@@ -117,7 +124,7 @@
     <input type="submit" value="Enregistrer">
 </form>
 
-<h2>13. Fichier médical</h2>
+<h2>15. Fichier médical</h2>
 <form action="ajout_fichier.php" method="post">
     Id examen : <input type="number" name="Id_Examen"><br>
     Nom du fichier : <input type="text" name="Nom_fichier"><br>
@@ -130,12 +137,12 @@
     <input type="submit" value="Enregistrer le fichier">
 </form>
 
-<h2>14. Suivi des examens</h2>
+<h2>16. Suivi des examens</h2>
 <form action="jointure_examens.php" method="post">
     <input type="submit" value="Afficher le suivi">
 </form>
 
-<h2>15. Supprimer une patiente</h2>
+<h2>17. Supprimer une patiente</h2>
 <form action="suppression_patiente.php" method="post">
     Id patiente : <input type="number" name="Id_Patiente"><br>
     <input type="submit" value="Supprimer">

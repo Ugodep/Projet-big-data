@@ -2,7 +2,7 @@
 
 $Type_machine = $_POST['Type_machine'];
 $Localisation_salle = $_POST['Localisation_salle'];
-require __DIR__ . '/../connexion.php';
+$base = new PDO('mysql:host=localhost;dbname=pink_data', 'root', 'root');
 echo "Connexion réussie à la base de données<br>";
 
 $sql = "INSERT INTO Equipement(Id_Equipement, Type_machine, Localisation_salle, Etat_fonctionnement)
